@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Search</title>
+    
+    <style>
+        body{
+    background-color: rgb(216, 213, 196);
+    margin: 10px;
+}
+#Header{
+    font-size: 40px;
+    font-family: 'Ink Free';
+    font-weight: bolder;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    border: 10px;
+    background-color: rgb(165, 167, 148);
+    border-radius: 10px;
+}
+#searchbar{
+    align-content: center;
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(165, 167, 148);
+    border-radius: 10px;
+    margin: 10px;
+}
+input[type=text], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  button[type=submit] {
+    width: 10%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .box1, .box2, .box3, .box3, .box4, .box5 {
+    background-color: rgb(165, 167, 148);
+    text-align: center;
+    height: 500px;
+    width: 20%;
+    float: left;
+    border-radius: 10px;
+  }
+  h2{
+    font-family: 'Comic Sans MS';
+  }
+  p{
+    font-family: 'Lucida Sans';
+    font-size: larger;
+  }
+ 
+    </style>
+</head>
+<body>
+    <div id="Header">
+        Compare Prize
+
+    </div>
+    <div id="searchbar">
+   
+    <form method="POST" action="/search">
+        <input type="text" name="name" placeholder="Enter product name" id="searchbox"><br>
+        <button type="submit">Search</button>
+    </form>
+</div>
+<div id="main">
+    <div class="box1">
+    {% if flipkart_result %}
+        
+        <h2 >Flipkart:</h2>
+        <p>{{ flipkart_result }}</p>
+
+    {% endif %}
+</div>
+<div class="box2">
+    {% if ebay_result %}
+   
+        <h2 >Ebay:</h2>
+        <p>{{ ebay_result }}</p>
+    
+    {% endif %}
+</div>
+<div class="box3">
+    {% if croma_result %}
+
+        <h2>Croma:</h2>
+        <p>{{ croma_result }}</p>
+   
+    {% endif %}
+</div>
+<div class="box4">
+    {% if amazon_result %}
+    
+        <h2>Amazon:</h2>
+        <p>{{ amazon_result }}</p>
+    
+    {% endif %}
+</div>
+<div class="box5">
+    {% if olx_result %}
+    
+        <h2>OLX:</h2>
+        <p>{{ olx_result }}</p>
+    
+    {% endif %}
+</div>
+</div>
+</body>
+</html>
